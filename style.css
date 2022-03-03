@@ -1,0 +1,94 @@
+html,body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #F1f1f1;
+}
+
+.container {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 10vh 70vh 20vh;
+}
+
+esquerda {
+    display: grid;
+    /* background-color: aquamarine; */
+    grid-column: 1/2;
+    grid-row: 2/3;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+titulo {
+    display: grid;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    align-items: center;
+    justify-items: center;
+}
+
+direita {
+    display: grid;
+    /* background-color: aqua; */
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+#bodezinho {
+    align-self: center;
+}
+
+#tituloConselho {
+    color: #BAA193;
+    justify-self: start;
+    align-self: end;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+#tituloMagico {
+    color: #72005F;
+    justify-self: start;
+    align-self: center;
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 50px;
+}
+
+#btnConselho {
+    width: 65%;
+    height: 70px;
+    background-color: #72005F;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    justify-self: start;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+#btnConselho:hover {
+    background-color: #640054;
+}
+
+#btnConselho:active {
+    background-color: #85006e;
+}
+
+#linkConselho {
+    width: 100%;
+}
+
+h1 {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 5rem;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+}
