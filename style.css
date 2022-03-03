@@ -73,6 +73,7 @@ direita {
 
 #btnConselho:hover {
     background-color: #640054;
+    cursor: pointer;
 }
 
 #btnConselho:active {

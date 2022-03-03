@@ -1,0 +1,131 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border - box;
+    background: #F1f1f1;
+}
+
+.container {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 15vw 70vw 15vw;
+    grid-template-rows: 10vh 70vh 20vh;
+}
+
+logo {
+    display: flexbox;
+    grid-column: 1/2;
+    width: 100%;
+    height: 100%;
+    padding-left: 20%;
+    padding-top: 5%;
+}
+
+#tituloConselho {
+    color: #BAA193;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+#tituloMagico {
+    color: #72005F;
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+h1 {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.75rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+conselho {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 100%;
+    width: 80%;
+    height: 80%;
+    align-self: center;
+    justify-self: center;
+    border-radius: 15px;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    background: #f1e8e3;
+}
+
+esquerda {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1/2;
+    padding: 50px;
+    align-items: flex-start;
+    
+}
+
+direita {
+    display: flex;
+    grid-column: 2/3;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-content: center;
+    min-height: 0;
+    min-width: 0;
+}
+
+#quote {
+    color: #72005F;
+    max-height: 60%;
+}
+
+#author {
+    color: #BAA193;
+    align-self: flex-end;
+}
+
+#mtgCover {
+    justify-self: flex-end;
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#btnConselho {
+    /* width: 45%; */
+    /* height: 50px; */
+    background-color: #72005F;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    font-size: x-large;
+    font-weight: bold;
+    width: 100%;
+    height: 150%;
+    justify-self: center;
+}
+
+#btnConselho:hover {
+    background-color: #640054;
+    cursor: pointer;
+}
+
+#btnConselho:active {
+    background-color: #85006e;
+}
+
+#linkConselho {
+    align-self: center;
+    justify-self: flex-end;
+    padding: 0;
+    margin-top: auto;
+}
