@@ -3,8 +3,11 @@ var mtgCover = document.getElementById('mtgCover');
 var quote = document.getElementById('quote');
 var author = document.getElementById('author');
 // var mtgURL = 'https://api.scryfall.com/cards/random';
-var mtgURL = 'https://api.scryfall.com/cards/random?q=ft%3A"+"+border%3Ablack';
-var qURL = 'https://api.adviceslip.com/advice';
+var mtgRandomURL = 'https://api.scryfall.com/cards/random?q=ft%3A"+"+border%3Ablack';
+var mtgCardIdURL = 'https://api.scryfall.com/cards/'
+// var qURL = 'https://api.adviceslip.com/advice';
+var cardId = '';
+var baseURL = document.location.href;
 
 /*
 var authorNames = [
@@ -64,11 +67,47 @@ var authorNames = [
 // Pegar a carta e colocar a url de imagem como src para mtgCover
 // O flavor text como quote - separando caso tenha 
 async function getCard(url) {
-    let response = await fetch(url);
+    let hash = checkCardId(baseURL);
+    if (hash != false) {
+        console.log('Card ID detectado: ' + hash);
+        getCardWithId(hash);
+    } else {
+        let response = await fetch(url);
+        let data = await response.json();
+        mtgCover.src = data.image_uris.normal;
+        quote.innerText = data.flavor_text;
+        author.innerText = '- ' + data.name;
+        hashURL(data.id);
+    }
+}
+
+function checkCardId(url) {
+    if (url.includes('#')) {
+        let indexOfHash = url.indexOf('#');
+        let hash = url.slice(indexOfHash + 1, url.length);
+        return hash;
+    } else {
+        return false;
+    }
+}
+
+async function getCardWithId(id) {
+    let mtgURLWithId = mtgCardIdURL + id;
+    let response = await fetch(mtgURLWithId);
     let data = await response.json();
     mtgCover.src = data.image_uris.normal;
     quote.innerText = data.flavor_text;
     author.innerText = '- ' + data.name;
+    hashURL(data.id);
+}
+
+function hashURL(hash) {
+    if (baseURL.includes('#')) {
+        let indexOfHash = baseURL.indexOf('#');
+        baseURL = baseURL.slice(0, indexOfHash);
+    }
+    let newURL = baseURL + '#' + hash;
+    document.location.href = newURL;
 }
 
 // ! Pegar a quote e colocar como o texto principal - caso queira utilizar o advice slip
@@ -81,7 +120,7 @@ async function getQuote(url) {
 */
 
 // Rodar as funções
-getCard(mtgURL);
+getCard(mtgRandomURL);
 // getQuote(qURL);
 
 // ! Definição de um índice aleatorio entre 0 e 49, usado para definir o autor - caso queira utilizar top 50 filósofos
